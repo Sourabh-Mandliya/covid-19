@@ -5,6 +5,7 @@ import moment from "moment";
 import CovidDateWise from "./components/CovidDateWise";
 import CovidStateWise from "./components/CovidStateWise";
 import CovidSampleTested from "./components/CovidSampleTested";
+import IndiaMap from "./components/IndiaMap";
 
 const Covid = () => {
   const [timeWiseData, setTimeWiseData] = useState([]);
@@ -48,7 +49,7 @@ const Covid = () => {
       <br />
       <div>
         <Nav tabs>
-          <NavItem style={{fontSize:"1.3rem"}}>
+          <NavItem>
             <NavLink
               onClick={() => {
                 setActiveTab(1);
@@ -59,25 +60,34 @@ const Covid = () => {
             </NavLink>
           </NavItem>
 
-          <NavItem style={{fontSize:"1.3rem"}}>
+          <NavItem>
             <NavLink
               onClick={() => {
                 setActiveTab(2);
               }}
               href="#"
-              
             >
               Date-wise
             </NavLink>
           </NavItem>
-          <NavItem style={{fontSize:"1.3rem"}}>
+          <NavItem>
             <NavLink
               onClick={() => {
                 setActiveTab(3);
               }}
               href="#"
             >
-              Vaccinated-information
+              Vaccinated
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              onClick={() => {
+                setActiveTab(4);
+              }}
+              href="#"
+            >
+              MAP
             </NavLink>
           </NavItem>
         </Nav>
@@ -88,6 +98,8 @@ const Covid = () => {
       {activeTab === 2 && <CovidDateWise timeWiseData={timeWiseData} />}
 
       {activeTab === 3 && <CovidSampleTested testedData={testedData} />}
+
+      {activeTab === 4 && <IndiaMap statesData={stateWiseData} />}
     </div>
   );
 };
