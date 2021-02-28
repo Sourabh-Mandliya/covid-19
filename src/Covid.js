@@ -49,10 +49,20 @@ const Covid = () => {
       <br />
       <div>
         <Nav tabs>
-          <NavItem>
+        <NavItem>
             <NavLink
               onClick={() => {
                 setActiveTab(1);
+              }}
+              href="#"
+            >
+              MAP
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              onClick={() => {
+                setActiveTab(2);
               }}
               href="#"
             >
@@ -63,7 +73,7 @@ const Covid = () => {
           <NavItem>
             <NavLink
               onClick={() => {
-                setActiveTab(2);
+                setActiveTab(3);
               }}
               href="#"
             >
@@ -73,33 +83,25 @@ const Covid = () => {
           <NavItem>
             <NavLink
               onClick={() => {
-                setActiveTab(3);
+                setActiveTab(4);
               }}
               href="#"
             >
               Vaccinated
             </NavLink>
           </NavItem>
-          <NavItem>
-            <NavLink
-              onClick={() => {
-                setActiveTab(4);
-              }}
-              href="#"
-            >
-              MAP
-            </NavLink>
-          </NavItem>
+          
         </Nav>
       </div>
       <br />
-      {activeTab === 1 && <CovidStateWise stateWiseData={stateWiseData} />}
+      {activeTab === 1 && <IndiaMap statesData={stateWiseData} />}
+      
+      {activeTab === 2 && <CovidStateWise stateWiseData={stateWiseData} />}
 
-      {activeTab === 2 && <CovidDateWise timeWiseData={timeWiseData} />}
+      {activeTab === 3 && <CovidDateWise timeWiseData={timeWiseData} />}
 
-      {activeTab === 3 && <CovidSampleTested testedData={testedData} />}
+      {activeTab === 4 && <CovidSampleTested testedData={testedData} />}
 
-      {activeTab === 4 && <IndiaMap statesData={stateWiseData} />}
     </div>
   );
 };
